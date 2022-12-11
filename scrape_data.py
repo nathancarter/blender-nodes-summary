@@ -46,6 +46,9 @@ def all_nodes_at_url ( outer_url ):
                 'url' : url + link.get( 'href' ),
                 'contents' : [ ]
             } )
+        elif '#' in url.split( '/' )[-1]:
+            # do not process just sections of larger pages
+            pass
         else:
             node_page_url = outer_url + link.get( 'href' )
             image_url = get_image_url( node_page_url )
